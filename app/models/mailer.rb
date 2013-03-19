@@ -169,7 +169,7 @@ class Mailer < ActionMailer::Base
     references news
     @news = news
     @news_url = url_for(:controller => 'news', :action => 'show', :id => news)
-    mail :to => news.notified_users,
+    mail :to => news.project.members.collect {|m| m.user}.collect {|u| u.mail},
       :cc => news.notified_watchers_for_added_news,
       :subject => "[#{news.project.name}] #{l(:label_news)}: #{news.title}"
   end
