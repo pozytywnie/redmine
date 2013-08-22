@@ -179,6 +179,15 @@ jsToolBar.prototype.elements.pre = {
 	}
 }
 
+// python
+jsToolBar.prototype.elements.python = {
+	type: 'button',
+	title: 'Python code',
+	fn: {
+		wiki: function() { this.encloseLineSelection('<pre><code class="python">\n', '\n</code></pre>') }
+	}
+}
+
 // spacer
 jsToolBar.prototype.elements.space4 = {type: 'space'}
 
